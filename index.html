@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>StockLens — Understand what's moving the market</title>
+<meta name="description" content="Every signal that moves a ticker — news, insiders, analysts, earnings, unusual moves — in one lens. $LENS on Robinhood Chain." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="assets/logo.png" />
+</head>
+<body>
+
+<div class="glow glow-a" aria-hidden="true"></div>
+<div class="glow glow-b" aria-hidden="true"></div>
+
+<!-- ───────────────── NAV ───────────────── -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <img class="brand-mark" src="assets/logo.png" alt="" width="592" height="576" />
+      <span class="brand-name">StockLens</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#terminal">Terminal</a>
+      <a href="#signals">Signals</a>
+      <a href="#token">Token</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="icon-link" href="#" aria-label="X" title="X (placeholder)">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a class="btn btn-dark" href="#terminal">Open the terminal</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ───────────────── HERO ───────────────── -->
+<section class="hero wrap">
+  <div class="pill-badge">
+    <span class="live-dot"></span>
+    Live on Robinhood Chain · id 4663
+  </div>
+
+  <h1>Understand what's<br />moving <span class="accent">the market.</span></h1>
+
+  <p class="lede">
+    Search a ticker. StockLens pulls the news, the insider fills, the analyst revisions,
+    the earnings clock and the moves nobody can explain — into one screen.
+  </p>
+
+  <div class="hero-cta">
+    <a class="btn btn-dark btn-lg" href="#terminal">Open the terminal</a>
+    <a class="btn btn-ghost btn-lg" href="#token">See the token</a>
+  </div>
+
+  <div class="ca-pill" id="ca-pill">
+    <span class="ca-tag">$LENS</span>
+    <code id="ca-value">—</code>
+    <button class="ca-copy" id="ca-copy" type="button">Copy</button>
+  </div>
+  <p class="ca-note" id="ca-note"></p>
+</section>
+
+<!-- ───────────────── MARQUEE ───────────────── -->
+<section class="marquee-shell">
+  <div class="marquee-label">Tracking</div>
+  <div class="marquee">
+    <div class="marquee-track" id="marquee-track"></div>
+  </div>
+</section>
+
+<!-- ───────────────── TERMINAL ───────────────── -->
+<section class="section wrap" id="terminal">
+  <div class="section-head">
+    <h2>One ticker, every input</h2>
+    <p>Type a symbol. The lens assembles what the tape already knows and scores how it leans.</p>
+  </div>
+
+  <div class="terminal">
+    <div class="terminal-bar">
+      <div class="search">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5" stroke-linecap="round"/></svg>
+        <input id="ticker-input" type="text" placeholder="Search a ticker — NVDA, TSLA, HOOD…" autocomplete="off" spellcheck="false" />
+      </div>
+      <div class="terminal-status">
+        <span class="live-dot"></span>
+        <span id="terminal-clock">—</span>
+      </div>
+    </div>
+
+    <div class="terminal-body">
+      <aside class="watchlist" id="watchlist"></aside>
+
+      <div class="ticker-panel">
+        <div class="ticker-head">
+          <div class="ticker-id" id="tk-open" role="button" tabindex="0" title="Open the full breakdown">
+            <span class="ticker-logo" id="tk-logo">—</span>
+            <div>
+              <div class="ticker-sym" id="tk-sym">—</div>
+              <div class="ticker-name" id="tk-name">—</div>
+            </div>
+          </div>
+          <div class="ticker-px">
+            <div class="px" id="tk-px">—</div>
+            <div class="chg" id="tk-chg">—</div>
+            <button class="tk-more" id="tk-more" type="button">Full breakdown</button>
+          </div>
+        </div>
+
+        <div class="gauge">
+          <div class="gauge-head">
+            <span>Lens score</span>
+            <strong id="tk-score">—</strong>
+          </div>
+          <div class="gauge-bar"><div class="gauge-fill" id="tk-gauge"></div></div>
+          <div class="gauge-legend"><span>Bearish</span><span>Neutral</span><span>Bullish</span></div>
+        </div>
+
+        <div class="feed" id="tk-feed"></div>
+      </div>
+    </div>
+
+    <p class="terminal-foot">
+      Sample data. This is a meme-coin site — the terminal is a mock of the product, not a market feed.
+      Nothing here is a quote, a recommendation, or investment advice.
+    </p>
+  </div>
+</section>
+
+<!-- ───────────────── SIGNALS ───────────────── -->
+<section class="section wrap" id="signals">
+  <div class="section-head">
+    <h2>Five lenses on one price</h2>
+    <p>Each one is a reason a chart moves. Most people watch one. StockLens stacks them.</p>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <span class="card-icn icn-news">📰</span>
+      <h3>News &amp; events</h3>
+      <p>Headlines, filings and press releases, timestamped against the candle they landed on.</p>
+    </article>
+    <article class="card">
+      <span class="card-icn icn-insider">🕴️</span>
+      <h3>Insider buys &amp; sells</h3>
+      <p>Who inside the company bought, who sold, how much, and whether it was planned or not.</p>
+    </article>
+    <article class="card">
+      <span class="card-icn icn-analyst">📈</span>
+      <h3>Analyst revisions</h3>
+      <p>Upgrades, downgrades and price-target moves — with the direction of the last three.</p>
+    </article>
+    <article class="card">
+      <span class="card-icn icn-earn">⏱️</span>
+      <h3>Earnings clock</h3>
+      <p>Next report, the whisper, and what the stock did the last eight times it printed.</p>
+    </article>
+    <article class="card">
+      <span class="card-icn icn-move">⚡</span>
+      <h3>Unusual moves</h3>
+      <p>Volume and range far outside normal, flagged the moment they break the band.</p>
+    </article>
+    <article class="card">
+      <span class="card-icn icn-lens">🔍</span>
+      <h3>The lens score</h3>
+      <p>All five, weighted into one number so you know which way the inputs lean.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ───────────────── TOKEN ───────────────── -->
+<section class="band" id="token">
+  <div class="wrap">
+    <div class="band-head">
+      <h2>$LENS</h2>
+      <p>A meme coin with a product attached. No presale, no team allocation, no tax.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span>Supply</span><strong>1,000,000,000</strong></div>
+      <div class="stat"><span>Tax</span><strong>0 / 0</strong></div>
+      <div class="stat"><span>Chain</span><strong>Robinhood · 4663</strong></div>
+      <div class="stat"><span>Liquidity</span><strong>Burned at launch</strong></div>
+    </div>
+
+    <div class="band-meta">
+      <div><span>CHAIN</span><code>Robinhood Chain mainnet, id 4663 (0x1237)</code></div>
+      <div><span>RPC</span><code>https://rpc.mainnet.chain.robinhood.com</code></div>
+      <div><span>EXPLORER</span><code>robinhoodchain.blockscout.com</code></div>
+      <div><span>GAS</span><code>ETH — Arbitrum Nitro L2</code></div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────── ROADMAP ───────────────── -->
+<section class="section wrap" id="roadmap">
+  <div class="section-head">
+    <h2>Roadmap</h2>
+    <p>Ship the lens, then widen it.</p>
+  </div>
+
+  <ol class="road">
+    <li class="road-item done">
+      <span class="road-dot"></span>
+      <h3>Phase 1 — The lens</h3>
+      <p>Landing page, the terminal mock, and a full written breakdown behind every ticker.</p>
+    </li>
+    <li class="road-item now">
+      <span class="road-dot"></span>
+      <h3>Phase 2 — Launch</h3>
+      <p>$LENS deployed on Robinhood Chain, liquidity pooled and burned, contract published here.</p>
+    </li>
+    <li class="road-item">
+      <span class="road-dot"></span>
+      <h3>Phase 3 — Real feeds</h3>
+      <p>Swap the mock for live news, insider filings, analyst revisions and earnings dates.</p>
+    </li>
+    <li class="road-item">
+      <span class="road-dot"></span>
+      <h3>Phase 4 — Token gate</h3>
+      <p>Hold $LENS, unlock alerts: unusual moves and insider fills pushed the second they land.</p>
+    </li>
+  </ol>
+</section>
+
+</main>
+
+<!-- ───────────────── FOOTER ───────────────── -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <a class="brand" href="#top">
+      <img class="brand-mark" src="assets/logo.png" alt="" width="592" height="576" />
+        <span class="brand-name">StockLens</span>
+      </a>
+      <p class="footer-tag">Understand what's moving the market.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#terminal">Terminal</a>
+      <a href="#signals">Signals</a>
+      <a href="#token">Token</a>
+      <a href="https://robinhoodchain.blockscout.com" target="_blank" rel="noopener">Explorer ↗</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="disclaimer">
+      $LENS is a meme coin. It is not a security, not a share, and carries no rights or claim on anything.
+      The terminal on this page shows sample data for demonstration only — it is not market data and not
+      investment advice. Assume you can lose everything you put in.
+    </p>
+  </div>
+</footer>
+
+
+<!-- ───────────────── STOCK MODAL ───────────────── -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+
+  <div class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="m-sym" id="modal-sheet">
+
+    <header class="m-head">
+      <div class="m-id">
+        <span class="m-logo" id="m-logo">—</span>
+        <div>
+          <div class="m-sym-row">
+            <h2 class="m-sym" id="m-sym">—</h2>
+            <span class="m-exch" id="m-exch">—</span>
+          </div>
+          <div class="m-name" id="m-name">—</div>
+        </div>
+      </div>
+
+      <div class="m-head-right">
+        <div class="m-px-block">
+          <div class="m-px" id="m-px">—</div>
+          <div class="m-chg" id="m-chg">—</div>
+        </div>
+        <button class="m-close" id="modal-close" type="button" aria-label="Close">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="m-body" id="m-body">
+
+      <div class="m-scoreline">
+        <div class="m-gauge">
+          <div class="gauge-head">
+            <span>Lens score</span>
+            <strong id="m-score">—</strong>
+          </div>
+          <div class="gauge-bar"><div class="gauge-fill" id="m-gauge"></div></div>
+          <div class="gauge-legend"><span>Bearish</span><span>Neutral</span><span>Bullish</span></div>
+        </div>
+        <span class="m-sample">Sample data</span>
+      </div>
+
+      <section class="m-section">
+        <h3 class="m-h3">Why it moved</h3>
+        <p class="m-headline" id="m-headline">—</p>
+        <div class="m-why" id="m-why"></div>
+      </section>
+
+      <section class="m-section">
+        <h3 class="m-h3">The drivers</h3>
+        <div class="m-drivers" id="m-drivers"></div>
+      </section>
+
+      <section class="m-section">
+        <h3 class="m-h3">Everything the lens picked up</h3>
+        <div class="feed m-feed" id="m-feed"></div>
+      </section>
+
+      <section class="m-section">
+        <h3 class="m-h3">At a glance</h3>
+        <div class="m-stats" id="m-stats"></div>
+      </section>
+
+    </div>
+
+    <footer class="m-foot">
+      <div class="m-foot-note">
+        Sample data for demonstration. Not a quote and not investment advice.
+      </div>
+      <a class="btn btn-dark m-buy" id="m-buy" href="#" target="_blank" rel="noopener">
+        <span id="m-buy-label">Buy on Robinhood</span>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </footer>
+
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
