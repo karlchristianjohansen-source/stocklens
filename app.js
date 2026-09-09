@@ -67,7 +67,7 @@ const rh = (sym) => `https://robinhood.com/us/en/stocks/${sym}/`;
 
 const TICKERS = [
   {
-    sym: 'NVDA', name: 'NVIDIA', exch: 'NASDAQ', px: 224.73, chg: 3.18, score: 82,
+    sym: 'NVDA', tv: 'NASDAQ:NVDA', name: 'NVIDIA', exch: 'NASDAQ', px: 224.73, chg: 3.18, score: 82,
     buyUrl: rh('NVDA'),
     headline: 'A target raise landed on top of volume nobody could explain, and the two fed each other all session.',
     why: [
@@ -91,7 +91,7 @@ const TICKERS = [
     ],
   },
   {
-    sym: 'TSLA', name: 'Tesla', exch: 'NASDAQ', px: 365.29, chg: -1.94, score: 38,
+    sym: 'TSLA', tv: 'NASDAQ:TSLA', name: 'Tesla', exch: 'NASDAQ', px: 365.29, chg: -1.94, score: 38,
     buyUrl: rh('TSLA'),
     headline: 'Two downgrades in five sessions and a delivery number that leaked before anyone could confirm it.',
     why: [
@@ -115,7 +115,7 @@ const TICKERS = [
     ],
   },
   {
-    sym: 'HOOD', name: 'Robinhood Markets', exch: 'NASDAQ', px: 118.40, chg: 5.62, score: 88,
+    sym: 'HOOD', tv: 'NASDAQ:HOOD', name: 'Robinhood Markets', exch: 'NASDAQ', px: 118.40, chg: 5.62, score: 88,
     buyUrl: rh('HOOD'),
     headline: 'Record on-chain volume, three upgrades, and a 5.6% gap with no filing attached to it.',
     why: [
@@ -139,7 +139,7 @@ const TICKERS = [
     ],
   },
   {
-    sym: 'COIN', name: 'Coinbase', exch: 'NASDAQ', px: 182.70, chg: 2.10, score: 71,
+    sym: 'COIN', tv: 'NASDAQ:COIN', name: 'Coinbase', exch: 'NASDAQ', px: 182.70, chg: 2.10, score: 71,
     buyUrl: rh('COIN'),
     headline: 'A listing, a target raise, and call sweeps at nearly three times the usual premium.',
     why: [
@@ -163,7 +163,7 @@ const TICKERS = [
     ],
   },
   {
-    sym: 'AAPL', name: 'Apple', exch: 'NASDAQ', px: 315.69, chg: 0.42, score: 58,
+    sym: 'AAPL', tv: 'NASDAQ:AAPL', name: 'Apple', exch: 'NASDAQ', px: 315.69, chg: 0.42, score: 58,
     buyUrl: rh('AAPL'),
     headline: 'Nothing happened, and the lens thinks that is the whole story.',
     why: [
@@ -187,7 +187,7 @@ const TICKERS = [
     ],
   },
   {
-    sym: 'MSTR', name: 'MicroStrategy', exch: 'NASDAQ', px: 289.11, chg: -4.35, score: 29,
+    sym: 'MSTR', tv: 'NASDAQ:MSTR', name: 'MicroStrategy', exch: 'NASDAQ', px: 289.11, chg: -4.35, score: 29,
     buyUrl: rh('MSTR'),
     headline: 'It fell 4.3% while the thing it holds went nowhere — the first time that correlation has broken in forty days.',
     why: [
@@ -211,7 +211,7 @@ const TICKERS = [
     ],
   },
   {
-    sym: 'META', name: 'Meta Platforms', exch: 'NASDAQ', px: 649.09, chg: 1.28, score: 66,
+    sym: 'META', tv: 'NASDAQ:META', name: 'Meta Platforms', exch: 'NASDAQ', px: 649.09, chg: 1.28, score: 66,
     buyUrl: rh('META'),
     headline: 'Ad checks came in ahead and a model shipped to production — a quiet, well-supported grind higher.',
     why: [
@@ -235,7 +235,7 @@ const TICKERS = [
     ],
   },
   {
-    sym: 'AMD', name: 'Advanced Micro Devices', exch: 'NASDAQ', px: 198.44, chg: 2.71, score: 74,
+    sym: 'AMD', tv: 'NASDAQ:AMD', name: 'Advanced Micro Devices', exch: 'NASDAQ', px: 198.44, chg: 2.71, score: 74,
     buyUrl: rh('AMD'),
     headline: 'A hyperscaler design win pulled the whole second-source trade higher.',
     why: [
@@ -259,7 +259,7 @@ const TICKERS = [
     ],
   },
   {
-    sym: 'PLTR', name: 'Palantir', exch: 'NASDAQ', px: 92.16, chg: -3.42, score: 34,
+    sym: 'PLTR', tv: 'NASDAQ:PLTR', name: 'Palantir', exch: 'NASDAQ', px: 92.16, chg: -3.42, score: 34,
     buyUrl: rh('PLTR'),
     headline: 'A contract slipped a quarter, and a stock priced for perfection does not forgive slippage.',
     why: [
@@ -283,7 +283,7 @@ const TICKERS = [
     ],
   },
   {
-    sym: 'MSFT', name: 'Microsoft', exch: 'NASDAQ', px: 512.88, chg: 0.86, score: 63,
+    sym: 'MSFT', tv: 'NASDAQ:MSFT', name: 'Microsoft', exch: 'NASDAQ', px: 512.88, chg: 0.86, score: 63,
     buyUrl: rh('MSFT'),
     headline: 'Cloud growth reaccelerated by a point, and that single point is the entire move.',
     why: [
@@ -307,7 +307,7 @@ const TICKERS = [
     ],
   },
   {
-    sym: 'SOFI', name: 'SoFi Technologies', exch: 'NASDAQ', px: 31.07, chg: 4.18, score: 76,
+    sym: 'SOFI', tv: 'NASDAQ:SOFI', name: 'SoFi Technologies', exch: 'NASDAQ', px: 31.07, chg: 4.18, score: 76,
     buyUrl: rh('SOFI'),
     headline: 'Deposit growth beat the quarter in two months, and an insider backed it with his own money.',
     why: [
@@ -331,7 +331,7 @@ const TICKERS = [
     ],
   },
   {
-    sym: 'SPY', name: 'SPDR S&P 500 ETF', exch: 'NYSE ARCA', px: 764.15, chg: 0.19, score: 55,
+    sym: 'SPY', tv: 'AMEX:SPY', name: 'SPDR S&P 500 ETF', exch: 'NYSE ARCA', px: 764.15, chg: 0.19, score: 55,
     buyUrl: rh('SPY'),
     headline: 'The whole tape is holding its breath until Thursday.',
     why: [
@@ -362,13 +362,102 @@ const KIND_LABEL = {
 const ARROW = { up: '↑', down: '↓', flat: '→' };
 
 let activeSym = 'NVDA';
-const liveState = new Map(); // sym → { px, chg }
-
-TICKERS.forEach((t) => liveState.set(t.sym, { px: t.px, chg: t.chg }));
 
 const bySym = (sym) => TICKERS.find((t) => t.sym === sym);
-const fmtPx = (n) => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-const fmtChg = (n) => `${n >= 0 ? '+' : ''}${n.toFixed(2)}%`;
+
+/* ── real company logos ──────────────────────────────────────────────
+   Two independent sources, then the monogram. parqet is a crisp SVG but
+   has no art for every ticker (SOFI 404s), so FMP backs it up. */
+const LOGO_SOURCES = [
+  (sym) => `https://assets.parqet.com/logos/symbol/${sym}`,
+  (sym) => `https://financialmodelingprep.com/image-stock/${sym}.png`,
+];
+
+/* Tickers the first source has no art for — start them on the second and
+   save a guaranteed 404 per render. */
+const LOGO_SKIP_FIRST = new Set(['SOFI']);
+
+/** <img> that walks the source list and finally degrades to the monogram. */
+function logoHTML(sym, cls) {
+  const start = LOGO_SKIP_FIRST.has(sym) ? 1 : 0;
+  return `<img class="${cls}" src="${LOGO_SOURCES[start](sym)}" alt="${sym} logo"
+    loading="lazy" data-sym="${sym}" data-attempt="${start}" onerror="lensLogoFallback(this)" />`;
+}
+
+/* global — the inline onerror handler above needs it on window */
+window.lensLogoFallback = function (img) {
+  const next = Number(img.dataset.attempt) + 1;
+  if (next < LOGO_SOURCES.length) {
+    img.dataset.attempt = String(next);
+    img.src = LOGO_SOURCES[next](img.dataset.sym);
+    return;
+  }
+  const span = document.createElement('span');
+  span.className = `${img.className} logo-fallback`;
+  span.textContent = img.dataset.sym.slice(0, 2);
+  img.replaceWith(span);
+};
+
+/* ── TradingView widgets ─────────────────────────────────────────────
+   Each widget reads its JSON config from the text of the script tag that
+   creates it, so switching symbol means rebuilding the container. */
+function mountChart(el, widget, config) {
+  if (!el) return;
+  el.innerHTML = '';
+  const box = document.createElement('div');
+  box.className = 'tradingview-widget-container';
+  box.style.height = '100%';
+  const slot = document.createElement('div');
+  slot.className = 'tradingview-widget-container__widget';
+  slot.style.height = '100%';
+  box.appendChild(slot);
+
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.async = true;
+  script.src = `https://s3.tradingview.com/external-embedding/embed-widget-${widget}.js`;
+  script.text = JSON.stringify(config);
+  box.appendChild(script);
+  el.appendChild(box);
+}
+
+function panelChart(sym) {
+  const t = bySym(sym);
+  if (!t) return;
+  mountChart($('tk-chart'), 'mini-symbol-overview', {
+    symbol: t.tv,
+    width: '100%',
+    height: '100%',
+    locale: 'en',
+    dateRange: '12M',
+    colorTheme: 'light',
+    isTransparent: true,
+    autosize: true,
+    chartOnly: false,
+    noTimeScale: false,
+  });
+}
+
+function modalChart(sym) {
+  const t = bySym(sym);
+  if (!t) return;
+  mountChart($('m-chart'), 'advanced-chart', {
+    autosize: true,
+    symbol: t.tv,
+    interval: 'D',
+    timezone: 'Etc/UTC',
+    theme: 'light',
+    style: '1',
+    locale: 'en',
+    hide_side_toolbar: true,
+    hide_top_toolbar: false,
+    allow_symbol_change: false,
+    save_image: false,
+    calendar: false,
+    withdateranges: true,
+    support_host: 'https://www.tradingview.com',
+  });
+}
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 function feedHTML(feed) {
@@ -393,18 +482,14 @@ function renderWatchlist(filter = '') {
     return;
   }
 
-  box.innerHTML = list.map((t) => {
-    const s = liveState.get(t.sym);
-    return `
+  box.innerHTML = list.map((t) => `
       <button class="wl-row ${t.sym === activeSym ? 'active' : ''}" data-sym="${t.sym}" type="button">
-        <span class="wl-logo">${t.sym.slice(0, 2)}</span>
+        ${logoHTML(t.sym, 'wl-logo')}
         <span class="wl-meta">
           <span class="wl-sym">${t.sym}</span>
           <span class="wl-name">${esc(t.name)}</span>
         </span>
-        <span class="wl-chg ${s.chg >= 0 ? 'up' : 'down'}">${fmtChg(s.chg)}</span>
-      </button>`;
-  }).join('');
+      </button>`).join('');
 
   box.querySelectorAll('.wl-row').forEach((row) => {
     row.addEventListener('click', () => selectTicker(row.dataset.sym, true));
@@ -414,20 +499,16 @@ function renderWatchlist(filter = '') {
 function renderTicker() {
   const t = bySym(activeSym);
   if (!t) return;
-  const s = liveState.get(t.sym);
 
-  $('tk-logo').textContent = t.sym.slice(0, 2);
+  $('tk-logo').innerHTML = logoHTML(t.sym, 'ticker-logo-img');
   $('tk-sym').textContent = t.sym;
   $('tk-name').textContent = t.name;
-  $('tk-px').textContent = `$${fmtPx(s.px)}`;
-
-  const chgEl = $('tk-chg');
-  chgEl.textContent = `${fmtChg(s.chg)} today`;
-  chgEl.className = `chg ${s.chg >= 0 ? 'up' : 'down'}`;
 
   $('tk-score').textContent = `${t.score} / 100`;
   $('tk-gauge').style.left = `calc(${t.score}% - 1.5px)`;
   $('tk-feed').innerHTML = feedHTML(t.feed);
+
+  panelChart(t.sym);
 }
 
 /** Select a ticker in the inline panel, and optionally open the full breakdown. */
@@ -454,17 +535,11 @@ const modal = {
 function renderModal(sym) {
   const t = bySym(sym);
   if (!t) return;
-  const s = liveState.get(sym);
 
-  $('m-logo').textContent = sym.slice(0, 2);
+  $('m-logo').innerHTML = logoHTML(sym, 'm-logo-img');
   $('m-sym').textContent = sym;
   $('m-exch').textContent = t.exch;
   $('m-name').textContent = t.name;
-  $('m-px').textContent = `$${fmtPx(s.px)}`;
-
-  const chg = $('m-chg');
-  chg.textContent = `${fmtChg(s.chg)} today`;
-  chg.className = `m-chg ${s.chg >= 0 ? 'up' : 'down'}`;
 
   $('m-score').textContent = `${t.score} / 100`;
   $('m-gauge').style.left = `calc(${t.score}% - 1.5px)`;
@@ -509,6 +584,7 @@ function openModal(sym) {
   void modal.el.offsetHeight;        // flush styles so the transition actually runs
   modal.el.classList.add('open');
 
+  modalChart(sym);
   $('modal-close').focus({ preventScroll: true });
 }
 
@@ -520,6 +596,7 @@ function closeModal() {
   // Let the exit transition finish before pulling the node out of the flow.
   modal.closeTimer = setTimeout(() => {
     modal.el.hidden = true;
+    $('m-chart').innerHTML = '';          // drop the widget iframe
     document.body.classList.remove('modal-open');
     document.body.style.paddingRight = '';
     modal.lastFocus?.focus?.({ preventScroll: true });
@@ -549,25 +626,6 @@ function initModal() {
 /* ══════════════════════════════════════════
    5.  Ticking sample data
    ══════════════════════════════════════════ */
-
-function tickPrices() {
-  TICKERS.forEach((t) => {
-    const s = liveState.get(t.sym);
-    const drift = (Math.random() - 0.5) * (t.px * 0.0006);
-    s.px = Math.max(0.01, s.px + drift);
-    s.chg = Math.max(-14, Math.min(14, s.chg + (Math.random() - 0.5) * 0.05));
-  });
-  renderWatchlist($('ticker-input').value);
-  renderTicker();
-
-  if (modal.openSym) {
-    const s = liveState.get(modal.openSym);
-    $('m-px').textContent = `$${fmtPx(s.px)}`;
-    const chg = $('m-chg');
-    chg.textContent = `${fmtChg(s.chg)} today`;
-    chg.className = `m-chg ${s.chg >= 0 ? 'up' : 'down'}`;
-  }
-}
 
 function tickClock() {
   const hhmmss = new Date().toLocaleTimeString('en-US', { hour12: false });
@@ -603,7 +661,6 @@ function init() {
   initModal();
   tickClock();
 
-  setInterval(tickPrices, 3200);
   setInterval(tickClock, 1000);
 
   $('ticker-input').addEventListener('input', (e) => {

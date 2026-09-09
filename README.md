@@ -81,6 +81,36 @@ full-width buy button. All of it collapses to instant under
 Per-ticker copy lives in the `TICKERS` array in `app.js` — `headline`, `why`
 (an array of paragraphs), `drivers`, `stats` and `buyUrl`.
 
+## Real data vs sample content
+
+The terminal deliberately mixes two kinds of content, and the UI says which is
+which in four places. Keep those labels.
+
+**Real, live, third-party:**
+
+- **Charts** — TradingView embed widgets. `mini-symbol-overview` in the ticker
+  panel, `advanced-chart` (candlesticks, indicators, timeframes) in the modal.
+  No API key, no backend; the widget reads its JSON config from the text of the
+  script tag that creates it, so changing symbol means rebuilding the container
+  (`mountChart()` in `app.js`). Symbols are exchange-qualified in the `tv` field
+  of each ticker, e.g. `NASDAQ:NVDA`, `AMEX:SPY`.
+- **Company logos** — two sources, tried in order, then a monogram:
+  1. `assets.parqet.com/logos/symbol/<TICKER>` (crisp SVG, no art for SOFI)
+  2. `financialmodelingprep.com/image-stock/<TICKER>.png` (covers all 12)
+
+  `LOGO_SKIP_FIRST` sends known-missing tickers straight to source 2 so they
+  do not fire a guaranteed 404 on every render.
+
+**Invented by me, for demonstration:**
+
+- the lens score, the "why it moved" write-ups, the drivers, the at-a-glance
+  stats, and every news / insider / analyst / earnings row.
+
+There are no longer any fake prices. They used to tick on a timer, but once a
+real chart sits beside them the two contradict each other on screen, so the
+invented price and change were removed entirely — the chart is now the only
+price on the page, and it is real.
+
 ## The terminal is a mock
 
 The ticker panel and every word in the detail modal are **sample data**,

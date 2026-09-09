@@ -401,14 +401,24 @@ code { font-family: var(--mono); }
   width: 28px; height: 28px;
   flex: none;
   border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  object-fit: contain;
+  padding: 3px;
+}
+/* only the monogram stand-in needs to centre text */
+.wl-logo.logo-fallback {
   display: grid; place-items: center;
   background: var(--bg-3);
+  border-color: transparent;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--ink-2);
+  padding: 0;
 }
-.wl-row.active .wl-logo { background: rgba(255,255,255,.16); color: #fff; }
+.wl-row.active .wl-logo { background: #fff; border-color: transparent; }
+.wl-row.active .wl-logo.logo-fallback { background: rgba(255,255,255,.16); color: #fff; }
 .wl-meta { flex: 1; min-width: 0; }
 .wl-sym { font-size: 13px; font-weight: 650; letter-spacing: -0.02em; }
 .wl-name {
@@ -432,14 +442,21 @@ code { font-family: var(--mono); }
   border-bottom: 1px solid var(--line-soft);
 }
 .ticker-id { display: flex; align-items: center; gap: 13px; }
-.ticker-logo {
+.ticker-logo { display: block; width: 44px; height: 44px; flex: none; }
+.ticker-logo-img {
   width: 44px; height: 44px;
   border-radius: 12px;
-  background: var(--bg-3);
+  background: #fff;
+  border: 1px solid var(--line);
+  object-fit: contain;
+  padding: 5px;
+}
+.ticker-logo-img.logo-fallback {
   display: grid; place-items: center;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  background: var(--bg-3);
+  border-color: transparent;
+  font-size: 14px; font-weight: 700; letter-spacing: -0.03em;
+  padding: 0;
 }
 .ticker-sym { font-size: 20px; font-weight: 750; letter-spacing: -0.035em; }
 .ticker-name { font-size: 13px; color: var(--muted); }
@@ -837,15 +854,21 @@ body.modal-open { overflow: hidden; }
   background: #fff;
 }
 .m-id { display: flex; align-items: center; gap: 15px; min-width: 0; }
-.m-logo {
+.m-logo { display: block; width: 52px; height: 52px; flex: none; }
+.m-logo-img {
   width: 52px; height: 52px;
-  flex: none;
   border-radius: 15px;
-  background: var(--bg-3);
+  background: #fff;
+  border: 1px solid var(--line);
+  object-fit: contain;
+  padding: 6px;
+}
+.m-logo-img.logo-fallback {
   display: grid; place-items: center;
-  font-size: 16px;
-  font-weight: 750;
-  letter-spacing: -0.04em;
+  background: var(--bg-3);
+  border-color: transparent;
+  font-size: 16px; font-weight: 750; letter-spacing: -0.04em;
+  padding: 0;
 }
 .m-sym-row { display: flex; align-items: center; gap: 10px; }
 .m-sym { font-size: 26px; font-weight: 780; letter-spacing: -0.04em; }
@@ -1048,4 +1071,50 @@ body.modal-open { overflow: hidden; }
   .modal-sheet { transition-duration: .01ms; }
   .modal-sheet { transform: none; }
   .m-feed .feed-row { animation: none; }
+}
+
+
+/* ══════════════════════════════════════════
+   Live TradingView charts
+   ══════════════════════════════════════════ */
+
+.tv-panel {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+}
+.tv-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10.5px;
+  font-weight: 650;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 10px;
+}
+
+.tv-chart {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+.tv-chart-sm { height: 200px; }
+.tv-chart-lg { height: 420px; }
+.tv-chart iframe { display: block; border: 0; }
+
+/* the modal's first section already sits under the header rule */
+.m-section-first { padding-top: 4px; }
+.m-h3 .live-dot { display: inline-block; vertical-align: middle; margin-right: 5px; }
+
+/* the price block is gone; the button is all that is left on that side */
+.ticker-px { display: flex; justify-content: flex-end; }
+.tk-more { margin-top: 0; }
+
+@media (max-width: 640px) {
+  .tv-chart-sm { height: 170px; }
+  .tv-chart-lg { height: 300px; }
 }

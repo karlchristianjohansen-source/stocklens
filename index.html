@@ -102,17 +102,20 @@
       <div class="ticker-panel">
         <div class="ticker-head">
           <div class="ticker-id" id="tk-open" role="button" tabindex="0" title="Open the full breakdown">
-            <span class="ticker-logo" id="tk-logo">—</span>
+            <span class="ticker-logo" id="tk-logo"></span>
             <div>
               <div class="ticker-sym" id="tk-sym">—</div>
               <div class="ticker-name" id="tk-name">—</div>
             </div>
           </div>
           <div class="ticker-px">
-            <div class="px" id="tk-px">—</div>
-            <div class="chg" id="tk-chg">—</div>
             <button class="tk-more" id="tk-more" type="button">Full breakdown</button>
           </div>
+        </div>
+
+        <div class="tv-panel">
+          <div class="tv-head"><span class="live-dot"></span> Live chart · TradingView</div>
+          <div class="tv-chart tv-chart-sm" id="tk-chart"></div>
         </div>
 
         <div class="gauge">
@@ -129,8 +132,10 @@
     </div>
 
     <p class="terminal-foot">
-      Sample data. This is a meme-coin site — the terminal is a mock of the product, not a market feed.
-      Nothing here is a quote, a recommendation, or investment advice.
+      <strong>Charts and company logos are real, live market data from TradingView.</strong>
+      Everything else on this panel — the lens score, and the news, insider, analyst and earnings
+      items below it — is invented sample content demonstrating what the product would show.
+      Those signals are not real. Nothing here is a recommendation or investment advice.
     </p>
   </div>
 </section>
@@ -268,7 +273,7 @@
 
     <header class="m-head">
       <div class="m-id">
-        <span class="m-logo" id="m-logo">—</span>
+        <span class="m-logo" id="m-logo"></span>
         <div>
           <div class="m-sym-row">
             <h2 class="m-sym" id="m-sym">—</h2>
@@ -279,10 +284,6 @@
       </div>
 
       <div class="m-head-right">
-        <div class="m-px-block">
-          <div class="m-px" id="m-px">—</div>
-          <div class="m-chg" id="m-chg">—</div>
-        </div>
         <button class="m-close" id="modal-close" type="button" aria-label="Close">
           <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
@@ -290,6 +291,11 @@
     </header>
 
     <div class="m-body" id="m-body">
+
+      <section class="m-section m-section-first">
+        <h3 class="m-h3"><span class="live-dot"></span> Live chart &mdash; real market data</h3>
+        <div class="tv-chart tv-chart-lg" id="m-chart"></div>
+      </section>
 
       <div class="m-scoreline">
         <div class="m-gauge">
@@ -300,7 +306,7 @@
           <div class="gauge-bar"><div class="gauge-fill" id="m-gauge"></div></div>
           <div class="gauge-legend"><span>Bearish</span><span>Neutral</span><span>Bullish</span></div>
         </div>
-        <span class="m-sample">Sample data</span>
+        <span class="m-sample">Invented sample</span>
       </div>
 
       <section class="m-section">
@@ -328,7 +334,8 @@
 
     <footer class="m-foot">
       <div class="m-foot-note">
-        Sample data for demonstration. Not a quote and not investment advice.
+        Chart above is real. The written analysis, drivers, signals and stats below it are
+        invented samples &mdash; not real events. Not investment advice.
       </div>
       <a class="btn btn-dark m-buy" id="m-buy" href="#" target="_blank" rel="noopener">
         <span id="m-buy-label">Buy on Robinhood</span>

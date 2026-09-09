@@ -2,10 +2,13 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "stocklens",
+      "name": "stocklens-site",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4663"],
-      "port": 4663
+      "runtimeArgs": [
+        "-m", "http.server", "4770",
+        "--directory", "/Users/karlchristianjohansen/code/stocklens"
+      ],
+      "port": 4770
     }
   ]
 }
