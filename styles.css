@@ -569,14 +569,6 @@ code { font-family: var(--mono); }
   box-shadow: var(--shadow);
   border-color: #dedee6;
 }
-.card-icn {
-  display: grid; place-items: center;
-  width: 38px; height: 38px;
-  border-radius: 11px;
-  background: var(--bg-3);
-  font-size: 17px;
-  margin-bottom: 15px;
-}
 .card h3 { font-size: 15.5px; font-weight: 650; letter-spacing: -0.025em; }
 .card p { margin-top: 7px; font-size: 13.5px; color: var(--muted); line-height: 1.55; }
 
