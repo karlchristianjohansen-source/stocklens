@@ -525,11 +525,12 @@ code { font-family: var(--mono); }
   min-width: 86px;
   text-align: center;
 }
-.k-news    { background: #eef2ff; color: #4a5bd0; }
-.k-insider { background: #fef3e2; color: #b3730f; }
-.k-analyst { background: var(--up-soft); color: var(--up); }
-.k-earnings{ background: #f3ecfd; color: #7c4ed1; }
-.k-unusual { background: var(--down-soft); color: var(--down); }
+/* All five signal labels read black on a neutral chip — no colour coding. */
+.k-news,
+.k-insider,
+.k-analyst,
+.k-earnings,
+.k-unusual { background: var(--bg-3); color: var(--ink); }
 
 .feed-body { flex: 1; min-width: 0; }
 .feed-title { font-size: 13.5px; font-weight: 550; letter-spacing: -0.012em; }

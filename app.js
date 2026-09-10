@@ -331,6 +331,294 @@ const TICKERS = [
     ],
   },
   {
+    sym: 'GOOGL', tv: 'NASDAQ:GOOGL', name: 'Alphabet', exch: 'NASDAQ', score: 73,
+    buyUrl: rh('GOOGL'),
+    headline: 'A cloud backlog number landed that nobody had in their model.',
+    why: [
+      'Committed cloud backlog came in well above the last disclosure. Backlog is contracted revenue that has not been recognised yet, which makes it one of the few forward numbers in software that is not a guess — and it reframes the growth argument for the next four quarters rather than the next one.',
+      'Two houses raised targets on the back of it, both citing capacity rather than demand. That is the tell: the constraint has moved from finding customers to serving them, which is the better problem to have and usually the one that gets paid for.',
+      'The tape agreed without getting carried away — 1.7× volume, an orderly close, no gap. Insiders sold under scheduled plans, which the lens weights lightly. Earnings sit 20 days out.',
+    ],
+    drivers: [
+      ['up',   'Cloud backlog beat',          'Contracted revenue above the last disclosure'],
+      ['up',   'Two targets raised',          'Both cite capacity, not demand'],
+      ['flat', 'Orderly 1.7× volume',         'No gap, no sweep — a steady bid'],
+      ['down', 'Scheduled insider sales',     'Pre-set plans, weighted lightly'],
+    ],
+    stats: [['Volume vs avg', '1.7×'], ['52w range', '11% from high'], ['Next earnings', '20 days'], ['Avg move', '±5.4%']],
+    feed: [
+      ['news',     'Cloud backlog well above last disclosure', 'Contracted, not forecast revenue',      '12m'],
+      ['analyst',  'Two targets raised on capacity',       'Constraint has moved to serving demand',    '54m'],
+      ['unusual',  'Volume 1.7× average, orderly close',   'No gap and no sweep',                       '2h'],
+      ['insider',  'Officers sold under plans',            'Scheduled, disclosed in advance',           '2d'],
+      ['earnings', 'Q3 report in 20 days',                 'Moved ±5.4% avg over the last 8 prints',    '—'],
+    ],
+  },
+  {
+    sym: 'AMZN', tv: 'NASDAQ:AMZN', name: 'Amazon', exch: 'NASDAQ', score: 69,
+    buyUrl: rh('AMZN'),
+    headline: 'Retail margin did the work this quarter, not the cloud line everyone watches.',
+    why: [
+      'A third-party margin check put North America retail ahead of consensus. That is the half of this business the market has spent years treating as a cost of doing business, so a beat there moves the story more than an equivalent beat in cloud would.',
+      'The sell side has not fully caught up — one target raise, framed cautiously around fulfilment cost per unit. When research lags a margin datapoint, the lens leans on the data rather than the note.',
+      'Volume was unremarkable at 1.3× and nothing broke the band, which is the profile of repricing rather than a chase. No insider activity in either direction this month. Earnings in 24 days.',
+    ],
+    drivers: [
+      ['up',   'Retail margin ahead',         'North America above consensus on a channel check'],
+      ['up',   'Target raised, cautiously',   'Framed on fulfilment cost per unit'],
+      ['flat', 'Volume 1.3×, inside the band','Repricing rather than a chase'],
+      ['flat', 'No insider activity',         'Nothing filed this month'],
+    ],
+    stats: [['Volume vs avg', '1.3×'], ['52w range', '8% from high'], ['Next earnings', '24 days'], ['Avg move', '±6.7%']],
+    feed: [
+      ['news',     'Retail margin check lands ahead',      'North America above consensus',             '28m'],
+      ['analyst',  'One target raised on unit costs',      'Cautious framing, no re-rating',            '3h'],
+      ['unusual',  'Volume 1.3× average',                  'Nothing outside the band',                  '—'],
+      ['insider',  'No insider activity this month',       'Nothing filed either way',                  '—'],
+      ['earnings', 'Q3 report in 24 days',                 'Moved ±6.7% avg over the last 8 prints',    '—'],
+    ],
+  },
+  {
+    sym: 'AVGO', tv: 'NASDAQ:AVGO', name: 'Broadcom', exch: 'NASDAQ', score: 79,
+    buyUrl: rh('AVGO'),
+    headline: 'A second custom-silicon customer was confirmed, and that changes the multiple, not just the model.',
+    why: [
+      'The company confirmed a second large customer for custom accelerators. One customer is a contract; two is a business line. The market prices those differently, which is why this moved more than the revenue arithmetic alone would justify.',
+      'Three targets went up within the session, all rebuilding the custom-silicon line rather than adjusting the existing one. That distinction matters — analysts adding a new segment is a structural revision, not a tweak.',
+      'Volume ran 2.6× with heavy call activity on the front month. Insiders were quiet. The risk is concentration: a business built on two customers is exposed to both of them, and the lens does not score that.',
+    ],
+    drivers: [
+      ['up',   'Second custom-silicon customer', 'One is a contract, two is a business line'],
+      ['up',   'Three targets rebuilt',        'A new segment, not an adjustment'],
+      ['up',   'Front-month call activity',    'Volume 2.6× the average'],
+      ['down', 'Customer concentration',       'Two names now carry the segment'],
+    ],
+    stats: [['Volume vs avg', '2.6×'], ['52w range', 'At the high'], ['Next earnings', '38 days'], ['Avg move', '±8.1%']],
+    feed: [
+      ['news',     'Second custom-silicon customer confirmed', 'Company statement',                     '19m'],
+      ['analyst',  'Three targets raised in-session',      'Custom line rebuilt, not adjusted',         '1h'],
+      ['unusual',  'Volume 2.6× with call activity',       'Concentrated in the front month',           '40m'],
+      ['insider',  'No insider activity',                  'Quiet through the announcement',            '—'],
+      ['earnings', 'Q4 report in 38 days',                 'Moved ±8.1% avg over the last 8 prints',    '—'],
+    ],
+  },
+  {
+    sym: 'LLY', tv: 'NYSE:LLY', name: 'Eli Lilly', exch: 'NYSE', score: 64,
+    buyUrl: rh('LLY'),
+    headline: 'Supply caught up with demand, which is good news that reads like bad news.',
+    why: [
+      'Manufacturing capacity for the incretin franchise came online ahead of schedule. For most companies that is unambiguously good. Here it is more subtle: scarcity has been supporting price, and the market spent the session working out whether volume growth offsets a softer mix.',
+      'The sell side landed on yes, narrowly — one target raise, one reiterate, and a notably wide spread between the two. That disagreement is the most informative thing in this file.',
+      'Volume was 1.5× and the range stayed inside the band. A director bought on the open market last week, which is a genuine signal rather than a scheduled one. Earnings in 29 days.',
+    ],
+    drivers: [
+      ['up',   'Capacity online early',       'Volume growth ahead of schedule'],
+      ['down', 'Scarcity had supported price','Softer mix as supply normalises'],
+      ['flat', 'Analysts split',              'One raise, one reiterate, wide spread'],
+      ['up',   'Director bought on the open market', 'Unscheduled, real money'],
+    ],
+    stats: [['Volume vs avg', '1.5×'], ['52w range', '14% from high'], ['Next earnings', '29 days'], ['Avg move', '±5.9%']],
+    feed: [
+      ['news',     'Incretin capacity online ahead of plan','Volume up, mix likely softer',             '35m'],
+      ['analyst',  'One raise, one reiterate',             'Unusually wide spread between them',        '2h'],
+      ['unusual',  'Volume 1.5×, range inside the band',   'No break either side',                      '—'],
+      ['insider',  'Director bought on the open market',   'Unscheduled purchase',                      '6d'],
+      ['earnings', 'Q3 report in 29 days',                 'Moved ±5.9% avg over the last 8 prints',    '—'],
+    ],
+  },
+  {
+    sym: 'JPM', tv: 'NYSE:JPM', name: 'JPMorgan Chase', exch: 'NYSE', score: 61,
+    buyUrl: rh('JPM'),
+    headline: 'Credit costs came in lower than guided, and the buyback got bigger.',
+    why: [
+      'Charge-offs landed below the range management guided to last quarter. For a lender that is the number that matters, because it feeds straight through provisions into earnings without any revenue growth required.',
+      'The buyback authorisation was increased alongside it. Read together, those two say the same thing: the balance sheet has more room than the guidance implied.',
+      'Research nudged targets up modestly — nobody is re-rating a bank on one quarter of credit data. Volume was ordinary at 1.2×. No insider activity. The next report is 15 days out and sets the tone for the sector.',
+    ],
+    drivers: [
+      ['up',   'Charge-offs below guidance',  'Straight through provisions into earnings'],
+      ['up',   'Buyback authorisation raised','Balance sheet has more room than guided'],
+      ['flat', 'Targets nudged, not re-rated','One quarter of credit data'],
+      ['flat', 'Volume 1.2×',                 'Ordinary session'],
+    ],
+    stats: [['Volume vs avg', '1.2×'], ['52w range', '5% from high'], ['Next earnings', '15 days'], ['Avg move', '±3.8%']],
+    feed: [
+      ['news',     'Charge-offs below guided range',       'Credit costs better than management said',  '22m'],
+      ['news',     'Buyback authorisation increased',      'Announced alongside the credit update',     '22m'],
+      ['analyst',  'Targets nudged higher',                'No re-rating on one quarter',               '4h'],
+      ['insider',  'No insider activity',                  'Nothing filed this month',                  '—'],
+      ['earnings', 'Q3 report in 15 days',                 'First large bank to report',                '—'],
+    ],
+  },
+  {
+    sym: 'V', tv: 'NYSE:V', name: 'Visa', exch: 'NYSE', score: 57,
+    buyUrl: rh('V'),
+    headline: 'Cross-border volume held up, which is the only line that really moves this stock.',
+    why: [
+      'Monthly cross-border volume stayed at the high end of the recent range. That is the highest-margin flow in the business, and it is the metric the market uses as a proxy for both travel and the health of the consumer.',
+      'Nothing else in the file did much. Targets were unchanged, coverage was quiet, and the tape traded 0.9× average — below normal. A 57 here reflects a genuinely balanced read rather than an absence of information.',
+      'The open question is regulatory rather than operational, and it does not appear in any of these five lenses. Earnings in 33 days.',
+    ],
+    drivers: [
+      ['up',   'Cross-border volume holding',  'Highest-margin flow, top of the range'],
+      ['flat', 'Targets unchanged',            'Quiet week from the sell side'],
+      ['flat', 'Volume 0.9× — below normal',   'Nothing forcing the price either way'],
+      ['flat', 'No insider activity',          'Nothing filed'],
+    ],
+    stats: [['Volume vs avg', '0.9×'], ['52w range', '7% from high'], ['Next earnings', '33 days'], ['Avg move', '±3.1%']],
+    feed: [
+      ['news',     'Cross-border volume at the top of range','Monthly operating update',                '1h'],
+      ['analyst',  'Targets unchanged',                    'Quiet week from the sell side',             '—'],
+      ['unusual',  'Volume 0.9× — below normal',           'Nothing forcing the price',                 '—'],
+      ['insider',  'No insider activity',                  'Nothing filed this month',                  '—'],
+      ['earnings', 'Q4 report in 33 days',                 'Moved ±3.1% avg over the last 8 prints',    '—'],
+    ],
+  },
+  {
+    sym: 'WMT', tv: 'NYSE:WMT', name: 'Walmart', exch: 'NYSE', score: 67,
+    buyUrl: rh('WMT'),
+    headline: 'The advertising business grew faster than the stores, again.',
+    why: [
+      'Retail media revenue grew several times faster than comparable sales. That mix shift is the whole bull case here: advertising carries margins a grocery aisle never will, so every point of mix is worth more than a point of sales.',
+      'Two analysts raised targets and both explicitly re-based their margin assumption rather than their revenue line. That is the shape of a durable revision.',
+      'Grocery share gains continued, which is the defensive half of the story. Volume 1.4×, inside the band. An officer sold under a scheduled plan. Earnings in 41 days — the longest runway of anything on this list.',
+    ],
+    drivers: [
+      ['up',   'Retail media outgrew stores',  'Ad margins the aisles cannot match'],
+      ['up',   'Two targets re-based on margin','Structural, not a revenue tweak'],
+      ['up',   'Grocery share gains continued','The defensive half of the story'],
+      ['down', 'Officer sold on schedule',     'Pre-set plan'],
+    ],
+    stats: [['Volume vs avg', '1.4×'], ['52w range', '3% from high'], ['Next earnings', '41 days'], ['Avg move', '±4.6%']],
+    feed: [
+      ['news',     'Retail media outgrows comparable sales','Mix shift toward advertising',             '45m'],
+      ['analyst',  'Two targets re-based on margin',       'Margin assumption, not revenue',            '2h'],
+      ['unusual',  'Volume 1.4×, inside the band',         'No break either side',                      '—'],
+      ['insider',  'Officer sold under a plan',            'Scheduled and disclosed',                   '3d'],
+      ['earnings', 'Q3 report in 41 days',                 'Moved ±4.6% avg over the last 8 prints',    '—'],
+    ],
+  },
+  {
+    sym: 'NFLX', tv: 'NASDAQ:NFLX', name: 'Netflix', exch: 'NASDAQ', score: 52,
+    buyUrl: rh('NFLX'),
+    headline: 'The ad tier is growing and the price increase is being absorbed — but the stock already assumed both.',
+    why: [
+      'Third-party data has ad-tier signups running ahead of plan and churn steady through the latest price increase. On the facts, that is a good week. The stock barely moved, which tells you the expectation was already in the price.',
+      'The sell side is split down the middle: one upgrade on advertising, one downgrade on the multiple, targets effectively unchanged in aggregate. Both are looking at the same numbers and disagreeing about what to pay for them.',
+      'Live-event rights costs are the open risk and do not show up in any of these five lenses. Volume 1.1×, nothing unusual. Earnings in 18 days.',
+    ],
+    drivers: [
+      ['up',   'Ad-tier signups ahead of plan','Third-party data, churn steady'],
+      ['up',   'Price increase absorbed',      'No churn spike after the change'],
+      ['down', 'Downgrade on the multiple',    'The business is fine, the price is the argument'],
+      ['flat', 'Volume 1.1×',                  'Nothing unusual in the tape'],
+    ],
+    stats: [['Volume vs avg', '1.1×'], ['52w range', '16% from high'], ['Next earnings', '18 days'], ['Avg move', '±9.1%']],
+    feed: [
+      ['news',     'Ad-tier signups running ahead of plan','Third-party data, churn steady',            '50m'],
+      ['analyst',  'One upgrade, one downgrade',           'Aggregate target unchanged',                '3h'],
+      ['unusual',  'Volume 1.1×',                          'Inside the band',                           '—'],
+      ['insider',  'No insider activity this month',       'Nothing filed',                             '—'],
+      ['earnings', 'Q3 report in 18 days',                 'Moved ±9.1% avg over the last 8 prints',    '—'],
+    ],
+  },
+  {
+    sym: 'ORCL', tv: 'NYSE:ORCL', name: 'Oracle', exch: 'NYSE', score: 70,
+    buyUrl: rh('ORCL'),
+    headline: 'Remaining performance obligations jumped, and the capex needed to deliver them jumped with it.',
+    why: [
+      'Remaining performance obligations rose sharply on new cloud infrastructure commitments. RPO is contracted and disclosed, which makes it far harder to argue with than a pipeline number.',
+      'The complication arrived in the same filing: capital expenditure guidance went up to serve it. Revenue you have to spend heavily to deliver is worth less than revenue you do not, and the analyst response split along exactly that line — targets up, margin estimates down.',
+      'Volume ran 2.1× with a clean break of the upper band. No insider activity. Earnings are 47 days out, the furthest on this list, which leaves a long window for the capex argument to be re-litigated.',
+    ],
+    drivers: [
+      ['up',   'RPO jumped on cloud commitments','Contracted and disclosed, not pipeline'],
+      ['down', 'Capex guidance raised with it', 'Revenue that costs more to deliver'],
+      ['flat', 'Targets up, margins down',      'Analysts split on the same filing'],
+      ['up',   'Volume 2.1×, upper band broken','Clean break, no reversal'],
+    ],
+    stats: [['Volume vs avg', '2.1×'], ['52w range', 'At the high'], ['Next earnings', '47 days'], ['Avg move', '±7.4%']],
+    feed: [
+      ['news',     'RPO jumps on cloud commitments',       'Contracted backlog, disclosed in filing',   '16m'],
+      ['news',     'Capex guidance raised to serve it',    'Same filing',                               '16m'],
+      ['analyst',  'Targets up, margin estimates down',    'Split response to one number',              '1h'],
+      ['unusual',  'Volume 2.1×, upper band broken',       'No reversal into the close',                '30m'],
+      ['earnings', 'Q2 report in 47 days',                 'Moved ±7.4% avg over the last 8 prints',    '—'],
+    ],
+  },
+  {
+    sym: 'XOM', tv: 'NYSE:XOM', name: 'Exxon Mobil', exch: 'NYSE', score: 45,
+    buyUrl: rh('XOM'),
+    headline: 'Production is up and refining margins are down, and the second one is winning.',
+    why: [
+      'Upstream volumes came in above plan, helped by assets that started ahead of schedule. In most quarters that carries the day. Not this one — refining crack spreads narrowed enough to more than offset it, and the market pays attention to the margin, not the barrel count.',
+      'Analysts cut estimates while leaving targets alone, which is a specific message: the long-run value is unchanged, the next two quarters are worse. That combination reliably produces a soft tape without a real breakdown.',
+      'Volume was 1.3× and the range never threatened the lower band. The dividend is the floor under this and nothing in the file threatens it. Earnings in 26 days.',
+    ],
+    drivers: [
+      ['up',   'Upstream volumes above plan',  'Assets started ahead of schedule'],
+      ['down', 'Refining margins narrowed',    'More than offsets the extra barrels'],
+      ['down', 'Estimates cut, targets held',  'Next two quarters worse, long run unchanged'],
+      ['flat', 'Dividend unthreatened',        'Nothing in the file touches the payout'],
+    ],
+    stats: [['Volume vs avg', '1.3×'], ['52w range', '12% from high'], ['Next earnings', '26 days'], ['Avg move', '±3.4%']],
+    feed: [
+      ['news',     'Upstream volumes above plan',          'Early starts on new assets',                '38m'],
+      ['news',     'Refining crack spreads narrowed',      'Offsets the volume gain',                   '38m'],
+      ['analyst',  'Estimates cut, targets unchanged',     'Near term worse, long run intact',          '5h'],
+      ['unusual',  'Volume 1.3×, lower band held',         'No breakdown in the tape',                  '—'],
+      ['earnings', 'Q3 report in 26 days',                 'Moved ±3.4% avg over the last 8 prints',    '—'],
+    ],
+  },
+  {
+    sym: 'COST', tv: 'NASDAQ:COST', name: 'Costco', exch: 'NASDAQ', score: 60,
+    buyUrl: rh('COST'),
+    headline: 'Renewal rates hit a record and the multiple is still the entire argument.',
+    why: [
+      'Membership renewal reached an all-time high. Membership fees are close to pure profit here, so renewal rate is the single cleanest read on the business, and it went the right way.',
+      'Traffic grew faster than basket size, which is the healthier of the two — it means more visits rather than inflation flattering the average ticket.',
+      'Against that, every downgrade this year has been about valuation rather than operations, and this week added another. The lens scores the business and the tape, not the multiple, which is why a 60 here understates how divided opinion actually is. Earnings in 12 days.',
+    ],
+    drivers: [
+      ['up',   'Record renewal rate',          'Fee income is close to pure profit'],
+      ['up',   'Traffic outgrew basket size',  'More visits, not just higher prices'],
+      ['down', 'Another valuation downgrade',  'Operations not disputed, multiple is'],
+      ['flat', 'Volume 1.0×',                  'An ordinary session'],
+    ],
+    stats: [['Volume vs avg', '1.0×'], ['52w range', '6% from high'], ['Next earnings', '12 days'], ['Avg move', '±4.2%']],
+    feed: [
+      ['news',     'Membership renewal at a record',       'Monthly membership update',                 '55m'],
+      ['news',     'Traffic outgrew basket size',          'Visits up, not just ticket',                '55m'],
+      ['analyst',  'Downgraded on valuation',              'Operations not disputed',                   '4h'],
+      ['insider',  'Officer sold under a plan',            'Scheduled',                                 '4d'],
+      ['earnings', 'Q4 report in 12 days',                 'Moved ±4.2% avg over the last 8 prints',    '—'],
+    ],
+  },
+  {
+    sym: 'TSM', tv: 'NYSE:TSM', name: 'Taiwan Semiconductor', exch: 'NYSE', score: 77,
+    buyUrl: rh('TSM'),
+    headline: 'Advanced-node capacity is sold out into next year, and pricing moved with it.',
+    why: [
+      'Leading-edge capacity is reported fully booked through next year, and the company is said to have raised advanced-node pricing alongside it. Sold-out capacity plus pricing power is the strongest combination this industry produces, and it shows up in gross margin almost immediately.',
+      'Monthly revenue confirmed it independently — the disclosure came in ahead of the seasonal pattern, which is a real number rather than a channel rumour.',
+      'The risk sits entirely outside these five lenses and is geopolitical. Nothing in the news, insider, analyst or earnings columns captures it, and it is the reason this trades at a discount to what the fundamentals alone would support. Earnings in 21 days.',
+    ],
+    drivers: [
+      ['up',   'Advanced nodes sold out',      'Booked through next year'],
+      ['up',   'Advanced-node pricing raised', 'Flows to gross margin quickly'],
+      ['up',   'Monthly revenue ahead',        'Confirms it independently'],
+      ['flat', 'Geopolitical risk unscored',   'Sits outside all five lenses'],
+    ],
+    stats: [['Volume vs avg', '1.9×'], ['52w range', 'At the high'], ['Next earnings', '21 days'], ['Avg move', '±5.2%']],
+    feed: [
+      ['news',     'Advanced nodes booked through next year','Capacity reported sold out',              '26m'],
+      ['news',     'Advanced-node pricing raised',         'Flows to gross margin',                     '26m'],
+      ['unusual',  'Volume 1.9× on the disclosure',        'Sustained through the close',               '1h'],
+      ['analyst',  'Targets raised across the group',      'Read-through to the whole supply chain',    '3h'],
+      ['earnings', 'Q3 report in 21 days',                 'Moved ±5.2% avg over the last 8 prints',    '—'],
+    ],
+  },
+  {
     sym: 'SPY', tv: 'AMEX:SPY', name: 'SPDR S&P 500 ETF', exch: 'NYSE ARCA', px: 764.15, chg: 0.19, score: 55,
     buyUrl: rh('SPY'),
     headline: 'The whole tape is holding its breath until Thursday.',
@@ -380,8 +668,10 @@ const LOGO_SKIP_FIRST = new Set(['SOFI']);
 /** <img> that walks the source list and finally degrades to the monogram. */
 function logoHTML(sym, cls) {
   const start = LOGO_SKIP_FIRST.has(sym) ? 1 : 0;
+  // eager: these are a few KB each, and lazy loading only buys pop-in
+  // as the watchlist scrolls
   return `<img class="${cls}" src="${LOGO_SOURCES[start](sym)}" alt="${sym} logo"
-    loading="lazy" data-sym="${sym}" data-attempt="${start}" onerror="lensLogoFallback(this)" />`;
+    decoding="async" data-sym="${sym}" data-attempt="${start}" onerror="lensLogoFallback(this)" />`;
 }
 
 /* global — the inline onerror handler above needs it on window */
