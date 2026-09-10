@@ -6,7 +6,7 @@
 /* ─────────────── CONFIG — edit this after you deploy ─────────────── */
 const CONFIG = {
   // Paste your $LENS ERC-20 address here after deploying. Leave '' until then.
-  tokenAddress: '',
+  tokenAddress: '0xf79bb00d3e5230f8bf4b709cfedf0250078b68a5',
   tokenSymbol: 'LENS',
 
   // Robinhood Chain mainnet — used to build the contract explorer link
