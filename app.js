@@ -8,6 +8,9 @@ const CONFIG = {
   // Paste your $LENS ERC-20 address here after deploying. Leave '' until then.
   tokenAddress: '',
   tokenSymbol: 'LENS',
+
+  // Robinhood Chain mainnet — used to build the contract explorer link
+  explorer: 'https://robinhoodchain.blockscout.com',
 };
 
 const $ = (id) => document.getElementById(id);
@@ -42,18 +45,72 @@ async function copy(text, label) {
    ══════════════════════════════════════════ */
 
 function renderContract() {
+  const pill = $('ca-pill');
   const value = $('ca-value');
   const note = $('ca-note');
-  if (CONFIG.tokenAddress) {
-    value.textContent = CONFIG.tokenAddress;
-    note.textContent = 'Verify the address against our X post before you buy.';
-  } else {
+  const btn = $('ca-copy');
+  const explorer = $('ca-explorer');
+  const ca = CONFIG.tokenAddress;
+
+  if (!ca) {
     value.textContent = 'Not deployed yet';
     note.textContent = 'Contract address goes live at launch. Never trust an address you did not find here.';
-    $('ca-copy').disabled = true;
-    $('ca-copy').style.opacity = '.45';
-    $('ca-copy').style.cursor = 'not-allowed';
+    btn.disabled = true;
+    pill.classList.add('is-empty');
+    explorer.hidden = true;
+    return;
   }
+
+  value.textContent = ca;
+  value.title = ca;
+  note.textContent = 'Always check the address here before you buy. We will never DM you one.';
+  btn.disabled = false;
+  pill.classList.remove('is-empty');
+  pill.title = 'Click to copy the contract address';
+
+  explorer.href = `${CONFIG.explorer}/token/${ca}`;
+  explorer.hidden = false;
+}
+
+/** Copy the contract address and confirm it on the button itself. */
+async function copyContract() {
+  const ca = CONFIG.tokenAddress;
+  if (!ca) return;
+
+  const btn = $('ca-copy');
+  const label = $('ca-copy-label');
+
+  let ok = true;
+  try {
+    await navigator.clipboard.writeText(ca);
+  } catch {
+    // Clipboard API needs a secure context; fall back to a selection copy.
+    ok = legacyCopy(ca);
+  }
+
+  label.textContent = ok ? 'Copied' : 'Press Ctrl+C';
+  btn.classList.toggle('copied', ok);
+  if (ok) toast('Contract address copied');
+
+  clearTimeout(copyContract._t);
+  copyContract._t = setTimeout(() => {
+    label.textContent = 'Copy';
+    btn.classList.remove('copied');
+  }, 1800);
+}
+
+/** Last resort for non-secure origins: select the text so Ctrl+C works. */
+function legacyCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.cssText = 'position:fixed;top:-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch { ok = false; }
+  ta.remove();
+  return ok;
 }
 
 /* ══════════════════════════════════════════
@@ -985,9 +1042,8 @@ function init() {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(activeSym); }
   });
 
-  $('ca-copy').addEventListener('click', () => {
-    if (CONFIG.tokenAddress) copy(CONFIG.tokenAddress, 'Contract address');
-  });
+  // the whole pill is a copy target, not just the button
+  $('ca-pill').addEventListener('click', copyContract);
 
   const nav = document.querySelector('.nav');
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);

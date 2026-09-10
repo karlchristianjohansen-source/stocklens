@@ -225,6 +225,9 @@ code { font-family: var(--mono); }
   white-space: nowrap;
 }
 .ca-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   border: 1px solid var(--line);
   background: #fff;
   border-radius: 999px;
@@ -236,6 +239,33 @@ code { font-family: var(--mono); }
   transition: background .15s, border-color .15s;
 }
 .ca-copy:hover { background: var(--bg-3); border-color: #d8d8e0; }
+.ca-copy .ca-ico { flex: none; }
+.ca-copy.copied {
+  background: var(--up-soft);
+  border-color: transparent;
+  color: var(--up);
+}
+
+/* whole pill is clickable once there is an address to copy */
+.ca-pill { cursor: pointer; transition: border-color .15s ease, background .15s ease; }
+.ca-pill:hover { border-color: #d5d5dd; background: #fff; }
+.ca-pill:active { transform: scale(.99); }
+
+.ca-pill.is-empty { cursor: default; }
+.ca-pill.is-empty:hover { border-color: var(--line); background: var(--bg-2); }
+.ca-pill.is-empty .ca-copy {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.ca-explorer {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12.5px;
+  font-weight: 550;
+  color: var(--brand);
+}
+.ca-explorer:hover { text-decoration: underline; }
 .ca-note {
   margin-top: 11px;
   font-size: 12.5px;
