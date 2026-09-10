@@ -94,12 +94,14 @@ which in four places. Keep those labels.
   script tag that creates it, so changing symbol means rebuilding the container
   (`mountChart()` in `app.js`). Symbols are exchange-qualified in the `tv` field
   of each ticker, e.g. `NASDAQ:NVDA`, `AMEX:SPY`.
-- **Company logos** — two sources, tried in order, then a monogram:
-  1. `assets.parqet.com/logos/symbol/<TICKER>` (crisp SVG, no art for SOFI)
-  2. `financialmodelingprep.com/image-stock/<TICKER>.png` (covers all 12)
-
-  `LOGO_SKIP_FIRST` sends known-missing tickers straight to source 2 so they
-  do not fire a guaranteed 404 on every render.
+- **Company logos** — vendored into `assets/logos/`, one file per ticker,
+  mapped by `LOGO_FILE` in `app.js`. They are served from our own origin
+  rather than hot-linked, so they cannot 404, rate-limit or change under us,
+  and they are covered by the same immutable cache header as the rest of
+  `/assets`. Mostly SVG; HOOD and SOFI were only available as PNG. Each file
+  was pulled from a logo CDN and checked by eye against the real brand mark.
+  `assets/logos/manifest.json` records the mapping. To add a ticker, drop the
+  file in and add one line to `LOGO_FILE`.
 
 **Invented by me, for demonstration:**
 

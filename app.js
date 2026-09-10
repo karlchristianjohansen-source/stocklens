@@ -654,34 +654,48 @@ let activeSym = 'NVDA';
 const bySym = (sym) => TICKERS.find((t) => t.sym === sym);
 
 /* ── real company logos ──────────────────────────────────────────────
-   Two independent sources, then the monogram. parqet is a crisp SVG but
-   has no art for every ticker (SOFI 404s), so FMP backs it up. */
-const LOGO_SOURCES = [
-  (sym) => `https://assets.parqet.com/logos/symbol/${sym}`,
-  (sym) => `https://financialmodelingprep.com/image-stock/${sym}.png`,
-];
+   Vendored into assets/logos/ rather than hot-linked, so they cannot
+   404, rate-limit or silently change under us. Every file was pulled
+   from a logo CDN and checked by eye against the real brand mark.
+   Mostly SVG; HOOD and SOFI are the two only available as PNG.
+   To refresh or add one, drop the file in and add it to LOGO_FILE. */
+const LOGO_FILE = {
+  NVDA: 'NVDA.svg',
+  TSLA: 'TSLA.svg',
+  HOOD: 'HOOD.png',
+  COIN: 'COIN.svg',
+  AAPL: 'AAPL.svg',
+  MSTR: 'MSTR.svg',
+  META: 'META.svg',
+  AMD: 'AMD.svg',
+  PLTR: 'PLTR.svg',
+  MSFT: 'MSFT.svg',
+  SOFI: 'SOFI.png',
+  GOOGL: 'GOOGL.svg',
+  AMZN: 'AMZN.svg',
+  AVGO: 'AVGO.svg',
+  LLY: 'LLY.svg',
+  JPM: 'JPM.svg',
+  V: 'V.svg',
+  WMT: 'WMT.svg',
+  NFLX: 'NFLX.svg',
+  ORCL: 'ORCL.svg',
+  XOM: 'XOM.svg',
+  COST: 'COST.svg',
+  TSM: 'TSM.svg',
+  SPY: 'SPY.svg'
+};
 
-/* Tickers the first source has no art for — start them on the second and
-   save a guaranteed 404 per render. */
-const LOGO_SKIP_FIRST = new Set(['SOFI']);
-
-/** <img> that walks the source list and finally degrades to the monogram. */
+/** <img> for a ticker, degrading to a monogram if the file is missing. */
 function logoHTML(sym, cls) {
-  const start = LOGO_SKIP_FIRST.has(sym) ? 1 : 0;
-  // eager: these are a few KB each, and lazy loading only buys pop-in
-  // as the watchlist scrolls
-  return `<img class="${cls}" src="${LOGO_SOURCES[start](sym)}" alt="${sym} logo"
-    decoding="async" data-sym="${sym}" data-attempt="${start}" onerror="lensLogoFallback(this)" />`;
+  const file = LOGO_FILE[sym];
+  if (!file) return `<span class="${cls} logo-fallback">${sym.slice(0, 2)}</span>`;
+  return `<img class="${cls}" src="assets/logos/${file}" alt="${sym} logo"
+    decoding="async" data-sym="${sym}" onerror="lensLogoFallback(this)" />`;
 }
 
 /* global — the inline onerror handler above needs it on window */
 window.lensLogoFallback = function (img) {
-  const next = Number(img.dataset.attempt) + 1;
-  if (next < LOGO_SOURCES.length) {
-    img.dataset.attempt = String(next);
-    img.src = LOGO_SOURCES[next](img.dataset.sym);
-    return;
-  }
   const span = document.createElement('span');
   span.className = `${img.className} logo-fallback`;
   span.textContent = img.dataset.sym.slice(0, 2);
